@@ -1,61 +1,48 @@
-Atomberg Smart Fan Controller
+🌀 Atomberg Smart Fan Controller
 
-A web application to authenticate with Atomberg IoT Developer APIs, list a user’s smart fans, and control them in real time.
+A web app to authenticate with Atomberg IoT Developer APIs, list a user’s smart fans, and control them in real time.
 
-This project was built as an assignment to demonstrate API integration, frontend architecture, and production readiness.
+Built as an assignment to demonstrate API integration, React UI, and production-ready structure.
 
-Features
+🚀 Features
 
-Secure authentication using API Key + Refresh Token
+🔐 Login using API Key + Refresh Token
 
-Automatic access token generation and refresh
+🔄 Automatic access-token generation
 
-List all fans linked to the user’s Atomberg account
+🪭 List all Atomberg smart fans linked to the account
 
-Control fan features:
+🎛️ Fan controls:
 
-Power ON / OFF
+⚡ Power ON / OFF
 
-Speed control (levels 1–6)
+🌬️ Speed control (1–6)
 
-Modes (Sleep / Boost)
+🌙 Sleep mode
 
-Timer
+🚀 Boost mode
 
-Light toggle (if supported by device)
+⏱️ Timer
 
-Responsive React UI
+💡 Light toggle (if supported)
 
-Clean separation of frontend and backend
+📱 Responsive React UI
 
-Ready for deployment
+🧠 Clean error & loading handling
 
-Tech Stack
-Frontend
+🛠️ Tech Stack
 
-React (Create React App)
+Frontend: React, Fetch API, Tailwind CSS
 
-Fetch API
+Backend: Node.js, Express
 
-Tailwind CSS (utility-first styling)
+Icons: Lucide React
 
-Lucide Icons
-
-Backend
-
-Node.js
-
-Express
-
-Acts as a secure proxy to Atomberg APIs (prevents exposing API keys in browser)
-
-Project Structure
+📁 Project Structure
 atomberg-controller/
-│
 ├── server/
 │   ├── package.json
 │   └── index.js
-│
 └── client/
     ├── package.json
     ├── public/
@@ -64,139 +51,64 @@ atomberg-controller/
         ├── index.js
         └── App.js
 
-Prerequisites
-
-Node.js ≥ 18
-
-npm ≥ 9
-
-Atomberg Developer Account
-
-Atomberg API Key & Refresh Token
-👉 https://developer.atomberg-iot.com/
-
-Setup Instructions (Local)
-1. Clone repository
+▶️ How to Run Locally
+1️⃣ Clone repo
 git clone https://github.com/YOUR_USERNAME/atomberg-controller.git
 cd atomberg-controller
 
-2. Install backend dependencies
+2️⃣ Start backend
 cd server
 npm install
+npm start
 
-3. Install frontend dependencies
+3️⃣ Start frontend
 cd ../client
 npm install
-
-4. Start backend server
-
-From server directory:
-
 npm start
 
 
-Server runs on:
+📍 App runs at: http://localhost:3000
 
-http://localhost:5000
+🔑 Authentication Flow
 
-5. Start frontend
+User enters API Key & Refresh Token
 
-From client directory:
-
-npm start
-
-
-Frontend runs on:
-
-http://localhost:3000
-
-How Authentication Works
-
-User enters:
-
-API Key
-
-Refresh Token
-
-Backend exchanges refresh token for access token
+Backend fetches access token
 
 Access token is used for:
 
-Fetching device list
+📡 Fetching devices
 
-Sending control commands
+🎮 Controlling fans
 
-Token refresh is handled automatically on expiry
+Token refresh handled automatically
 
-This avoids exposing sensitive credentials in the browser.
+🔒 Credentials are not exposed in the browser.
 
-Supported API Endpoints (Used)
+🧪 Test Family (Optional)
 
-POST /auth/token
+Join demo family:
 
-GET /devices
+Name: App Demonstration
 
-POST /devices/{deviceId}/control
+Code: FBXBWC
 
-All endpoints are accessed via backend proxy.
+🔗 https://app.atomberg-iot.com?code=FBXBWC&name=App%20Demonstration
 
-Device Control Capabilities
+(Code valid for 15 minutes)
 
-Depending on device model:
+✅ Assignment Requirements Covered
 
-Power control
+✔ Ask for API key & refresh token
+✔ Show list of user’s fans
+✔ Provide fan control options
+✔ Clean, production-ready structure
 
-Speed control (1–6)
+📌 Notes
 
-Sleep mode
+Feature availability depends on fan model
 
-Boost mode
+Designed for demo & evaluation purposes
 
-Timer (minutes)
+Ready for deployment on Vercel / Netlify / Render
 
-Light toggle
-
-Unsupported commands are safely ignored by API.
-
-Dummy Family for Testing
-
-You can join the test family if needed:
-
-Family Name: App Demonstration
-Join Code: FBXBWC
-Link:
-https://app.atomberg-iot.com?code=FBXBWC&name=App%20Demonstration
-
-(Valid for 15 minutes)
-
-Production Readiness Notes
-
-What is already handled:
-
-Token refresh
-
-Error handling
-
-Clean UI states (loading / error / success)
-
-Environment-ready structure
-
-What should be improved for real production:
-
-Move secrets to .env
-
-Add HTTPS
-
-Add rate limiting
-
-Add logging (Winston / Pino)
-
-Add role-based access (if multi-user)
-
-Known Limitations
-
-No persistent backend storage (stateless)
-
-Device feature availability depends on fan model
-
-UI assumes online connectivity
